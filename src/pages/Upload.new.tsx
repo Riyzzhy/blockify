@@ -869,6 +869,12 @@ const Upload = () => {
             </Card>
           </SignedOut>
         </div>
+        
+        {/* User Auth Modal */}
+        <UserAuthModal 
+          isOpen={isUserAuthOpen} 
+          onClose={() => setIsUserAuthOpen(false)} 
+        />
       </div>
     </div>
   );

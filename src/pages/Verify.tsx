@@ -345,6 +345,12 @@ const Verify = () => {
           </div>
         </DialogContent>
       </Dialog>
+      
+      {/* User Auth Modal */}
+      <UserAuthModal 
+        isOpen={isUserAuthOpen} 
+        onClose={() => setIsUserAuthOpen(false)} 
+      />
     </div>
   );
 };
