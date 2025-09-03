@@ -3,7 +3,6 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import certificateRoutes from './routes/certificateRoutes';
-import authRoutes from './routes/authRoutes';
 import { ClerkExpressWithAuth } from '@clerk/clerk-sdk-node';
 import path from 'path';
 
@@ -30,7 +29,6 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 // Routes
 app.use('/api/certificates', certificateRoutes);
-app.use('/api/auth', authRoutes);
 
 // Error handling middleware
 app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {

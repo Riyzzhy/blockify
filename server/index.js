@@ -4,7 +4,6 @@ import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import chatbotRoutes from './routes/chatbot.js';
-import authRoutes from './routes/auth.js';
 
 dotenv.config();
 
@@ -24,7 +23,6 @@ app.use(express.static(join(__dirname, '../dist')));
 
 // Routes
 app.use('/api/chatbot', chatbotRoutes);
-app.use('/api/auth', authRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {

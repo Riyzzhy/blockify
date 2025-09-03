@@ -9,7 +9,6 @@ import { ThemeToggle } from './ThemeToggle';
 import { Link, NavLink } from 'react-router-dom';
 import { SignInDropdown } from './SignInDropdown';
 import { UserPortalBadge } from './UserPortalBadge';
-import { UserAuthModal } from './UserAuthModal';
 
 function cn(...classes: (string | undefined | null | boolean)[]): string {
   return classes.filter(Boolean).join(" ");
@@ -19,7 +18,6 @@ const BlockchainHero: React.FC = () => {
    const canvasRef = useRef<HTMLCanvasElement>(null);
    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
    const [isScrolled, setIsScrolled] = useState<boolean>(false);
-   const [isUserAuthOpen, setIsUserAuthOpen] = useState<boolean>(false);
 
    const { scrollY } = useScroll();
    useMotionValueEvent(scrollY, "change", (latest) => {
@@ -152,14 +150,6 @@ const BlockchainHero: React.FC = () => {
                     <SignedIn>
                         <div className="flex items-center">
                             <UserPortalBadge />
-                            <Button
-                                variant="ghost"
-                                size="sm"
-                                onClick={() => setIsUserAuthOpen(true)}
-                                className="mr-2 text-muted-foreground hover:text-foreground"
-                            >
-                                User Auth
-                            </Button>
                             <UserButton />
                         </div>
                     </SignedIn>
@@ -298,12 +288,6 @@ const BlockchainHero: React.FC = () => {
                 </motion.p>
             </motion.div>
         </main>
-        
-        {/* User Auth Modal */}
-        <UserAuthModal 
-            isOpen={isUserAuthOpen} 
-            onClose={() => setIsUserAuthOpen(false)} 
-        />
     </div>
   );
 };

@@ -7,7 +7,6 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
 import { SignInDropdown } from '@/components/SignInDropdown';
-import { UserAuthModal } from '@/components/UserAuthModal';
 import { Input } from '@/components/ui/input';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Badge } from '@/components/ui/badge';
@@ -34,7 +33,6 @@ const Dashboard = () => {
   const [selectedDocId, setSelectedDocId] = useState<string | null>(null);
   const [qrDialogOpen, setQrDialogOpen] = useState(false);
   const [currentQrCode, setCurrentQrCode] = useState<string | null>(null);
-  const [isUserAuthOpen, setIsUserAuthOpen] = useState(false);
 
   // Calculate document statistics
   const totalDocs = documents.length;
@@ -1013,12 +1011,6 @@ Original file is attached/referenced above.
           </div>
         </DialogContent>
       </Dialog>
-      
-      {/* User Auth Modal */}
-      <UserAuthModal 
-        isOpen={isUserAuthOpen} 
-        onClose={() => setIsUserAuthOpen(false)} 
-      />
     </div>
   );
 };
